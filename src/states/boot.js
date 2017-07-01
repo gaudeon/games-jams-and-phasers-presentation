@@ -1,4 +1,5 @@
 // json imports
+import slidesJSON from '../../assets/json/slides.json';
 
 // web fonts
 // import WebFont from 'webfontloader';
@@ -21,7 +22,7 @@ export default class LoadingState extends Phaser.State {
 
     preload () {
         // load json configuration files
-        // this.game.cache.addJSON('jsonConfig', null, jsonConfig);
+        this.game.cache.addJSON('slidesConfig', null, slidesJSON);
 
         // load web fonts
         /* WebFont.load({
@@ -47,7 +48,7 @@ export default class LoadingState extends Phaser.State {
 
     update () {
         if (this.areFontsLoaded) {
-            this.state.start('MainMenu');
+            this.state.start('Play');
         }
     }
 

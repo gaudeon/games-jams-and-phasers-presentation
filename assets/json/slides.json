@@ -1,0 +1,37 @@
+[
+    [
+        {
+            "type": "text",
+            "text": "Games, Jams and Phasers",
+            "y": 0,
+            "style": {
+                "font": "20pt Arial",
+                "fill": "white",
+                "stroke": "white",
+                "boundsAlignH": "center"
+            }
+        },
+        {
+            "type": "text",
+            "text": "Travis Chase",
+            "y": 30,
+            "style": {
+                "font": "20pt Arial",
+                "fill": "white",
+                "stroke": "white",
+                "boundsAlignH": "center"
+            }
+        },
+        {
+            "type": "text",
+            "text": "https://github.com/gaudeon/games-jams-and-phasers-presentation",
+            "y": 60,
+            "style": {
+                "font": "14pt Arial",
+                "fill": "red",
+                "stroke": "red",
+                "boundsAlignH": "center"
+            }
+        }
+    ]
+]
