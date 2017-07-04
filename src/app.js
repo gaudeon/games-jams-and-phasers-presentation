@@ -3,8 +3,10 @@ import BootState from './states/boot';
 import PlayState from './states/play';
 
 require('./index.html');
+require('../node_modules/reveal/index.css');
+require('../node_modules/reveal/theme/night.css');
 
-let game = new Phaser.Game(800, 600);
+let game = new Phaser.Game('100', '100', Phaser.AUTO, '', null, true, true, null);
 
 Phaser.Device.whenReady(function () {
     // plugins

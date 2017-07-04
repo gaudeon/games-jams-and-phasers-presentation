@@ -1,0 +1,52 @@
+{"frames": [
+
+{
+	"filename": "bh_logo",
+	"frame": {"x":0,"y":0,"w":119,"h":21},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":119,"h":21},
+	"sourceSize": {"w":119,"h":21}
+},
+{
+	"filename": "pacman_closed",
+	"frame": {"x":119,"y":0,"w":19,"h":21},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":19,"h":21},
+	"sourceSize": {"w":19,"h":21}
+},
+{
+	"filename": "pacman_inky",
+	"frame": {"x":138,"y":0,"w":19,"h":18},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":19,"h":18},
+	"sourceSize": {"w":19,"h":18}
+},
+{
+	"filename": "pacman_open",
+	"frame": {"x":157,"y":0,"w":19,"h":21},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":19,"h":21},
+	"sourceSize": {"w":19,"h":21}
+},
+{
+	"filename": "pacman_pellet",
+	"frame": {"x":176,"y":0,"w":6,"h":6},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":6,"h":6},
+	"sourceSize": {"w":6,"h":6}
+}],
+"meta": {
+	"app": "http://www.codeandweb.com/texturepacker",
+	"version": "1.0",
+	"image": "sprites.png",
+	"format": "RGBA8888",
+	"size": {"w":182,"h":21},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:76c58db554f1360445eea69ae7e6637f:b21ff5fc2442da1f42efd8888a6f6b34:1eabdf11f75e3a4fe3147baf7b5be24b$"
+}
+}

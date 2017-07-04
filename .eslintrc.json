@@ -20,7 +20,8 @@
         "assert": true,
         "game": true,
         "describe": true,
-        "it": true
+        "it": true,
+        "Reveal": true
     },
     "settings": {
         "import/core-modules": [ "phaser", "pixi", "p2" ]

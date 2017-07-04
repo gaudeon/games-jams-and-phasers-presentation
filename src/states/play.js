@@ -1,33 +1,34 @@
-import Slide from '../objects/slide';
+import Pacman from '../objects/slide-anims/pacman';
+import BHLogo from '../objects/slide-anims/bh-logo';
+import BHPacman from '../objects/slide-anims/bh-pacman';
 
 export default class PlayState extends Phaser.State {
-    init (slideIndex = 0) {
-        this.slideIndex = 0;
+    init (slideIndexH = 0, slideIndexV = 0) {
+        this.slideIndexH = slideIndexH;
+        this.slideIndexV = slideIndexV;
+    }
+
+    preload () {
+        this.game.load.atlas('spritesAtlas', '/assets/sprites.png', null, this.game.cache.getJSON('spritesJSON'), Phaser.Loader.TEXTURE_ATLAS_JSON_HASH);
     }
 
     create () {
-        this.slides = [];
-        let slidesJSON = this.game.cache.getJSON('slidesConfig');
+        let anim;
 
-        slidesJSON.forEach((slideJSON) => {
-            let slide = new Slide(this.game);
+        switch (this.slideIndexH) {
+            case 1:
+                anim = new Pacman(this.game);
+                break;
+            case 2:
+                anim = new BHLogo(this.game);
+                break;
+            case 3:
+                anim = new BHPacman(this.game);
+                break;
+        }
 
-            slideJSON.forEach((slideElementJSON) => {
-                switch (slideElementJSON.type) {
-                    case 'text':
-                        slide.factory.text(
-                            slideElementJSON.x || 0,
-                            slideElementJSON.y || 0,
-                            slideElementJSON.text || '',
-                            slideElementJSON.style || {}
-                        );
-                        break;
-                }
-            });
-
-            this.slides.push(slide);
-        });
-
-        this.slides[this.slideIndex].visible = true;
+        if (typeof anim !== 'undefined') {
+            anim.play();
+        }
     }
 };
