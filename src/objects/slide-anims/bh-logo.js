@@ -14,6 +14,9 @@ export default class BHLogo extends SlideAnim {
         this.logo.body.collideWorldBounds = true;
         this.logo.body.bounce.y = 0.2;
         this.logo.body.gravity.y = 200;
+
+        // position
+        this.y = this.game.height - 100;
     }
 
     play () {

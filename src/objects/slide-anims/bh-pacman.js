@@ -16,6 +16,7 @@ export default class BHPacman extends SlideAnim {
             let pellet = new Phaser.Sprite(this.game, 0, 0, 'spritesAtlas', 'pacman_pellet');
             pellet.scale.setTo(this.spriteScale, this.spriteScale);
             pellet.anchor.x = pellet.anchor.y = 0.5;
+            pellet.outOfBoundsKill = true;
 
             let x = i * pellet.width + i * pellet.width * 0.5;
             pellet.reset(x, 0);
@@ -31,14 +32,26 @@ export default class BHPacman extends SlideAnim {
         this.pacman.anchor.x = this.pacman.anchor.y = 0.5;
         this.pacman.animations.add('chomp', ['pacman_open', 'pacman_closed'], 10, true);
         this.pacman.animations.play('chomp');
+        this.pacman.outOfBoundsKill = true;
         this.game.physics.arcade.enable(this.pacman);
 
         // inky
-        this.inky = new Phaser.Sprite(this.game, 0, 0, 'spritesAtlas', 'bh_logo');
+        this.inky = new Phaser.Sprite(this.game, 0, 0, 'spritesAtlas', 'pacman_inky');
         this.inky.scale.setTo(this.spriteScale, this.spriteScale);
         this.inky.anchor.x = this.inky.anchor.y = 0.5;
-        this.inky.reset(-this.inky.width, 0);
+        this.inky.outOfBoundsKill = true;
+        this.inky.reset(-this.inky.width * 2, 0);
         this.game.physics.arcade.enable(this.inky);
+
+        // bh logo
+        this.logo = new Phaser.Sprite(this.game, 0, 0, 'spritesAtlas', 'bh_logo');
+        this.logo.scale.setTo(this.spriteScale, this.spriteScale);
+        this.logo.anchor.x = this.logo.anchor.y = 0.5;
+        this.logo.reset(this.game.width / 2, -this.logo.height * 3);
+        this.game.physics.arcade.enable(this.logo);
+        this.logo.body.collideWorldBounds = true;
+        this.logo.body.bounce.y = 0.2;
+        this.logo.body.gravity.y = 200;
 
         // position
         this.y = this.game.height - 100;
@@ -61,17 +74,20 @@ export default class BHPacman extends SlideAnim {
     }
 
     createActors () {
+        this.add(this.logo);
+
         this.add(this.pacman);
-        this.pacman.body.moveTo(10000, this.game.width + 600, Phaser.ANGLE_RIGHT);
+        this.pacman.body.velocity.x = 300;
 
         this.add(this.inky);
-        this.inky.body.moveTo(12000, this.game.width + 600, Phaser.ANGLE_RIGHT);
+        this.inky.body.velocity.x = 300;
     }
 
     update () {
-        this.pacman.body.moveTo(10000, this.game.width + 600, Phaser.ANGLE_RIGHT);
         this.pellets.forEach((pellet) => {
-            this.game.physics.arcade.collide(this.pacman, pellet, this.collideWithPellet, null, this);
+            if (this.game.physics.arcade.distanceBetween(this.pacman, pellet, true) <= 30) {
+                pellet.kill();
+            }
         });
     }
 
