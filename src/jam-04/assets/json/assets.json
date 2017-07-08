@@ -1,0 +1,122 @@
+{
+    "flag_atlas": {
+        "type": "atlas",
+        "file": "assets/images/flag_atlas.png",
+        "json": "assets/json/flag_atlas.json"
+    },
+    "forest": {
+        "type": "tilemap",
+        "json": "assets/json/Forest-Big.json",
+        "tilesets": {
+            "RPG_32": {
+                "file": "assets/images/RPGpack_sheet_32.png",
+                "tiled_set_name": "Kenny_terrain_32"
+            },
+            "flag_atlas": {
+                "file": "assets/images/flag_atlas.png",
+                "tiled_set_name": "flag_atlas"
+            }
+        },
+        "layers": {
+            "backgroundLayer": {
+                "tiled_layer_name": "BackGround"
+            },
+            "collisionLayer": {
+                "tiled_layer_name": "Collisions",
+                "collision_id_first": 1,
+                "collision_id_last": 226
+            },
+            "foregroundLayer": {
+                "tiled_layer_name": "ForeGround"
+            }
+        },
+        "objects": {
+            "Objects": {
+                "flag_orange_right": {
+                    "key": "flag_atlas",
+                    "frame": "flag_orange_right_1",
+                    "class_name": "FlagOrange"
+                },
+                "flag_orange_left": {
+                    "key": "flag_atlas",
+                    "frame": "flag_orange_left_1",
+                    "class_name": "FlagOrange"
+                },
+                "flag_green_right": {
+                    "key": "flag_atlas",
+                    "frame": "flag_green_right_1",
+                    "class_name": "FlagGreen"
+                },
+                "flag_green_left": {
+                    "key": "flag_atlas",
+                    "frame": "flag_green_left_1",
+                    "class_name": "FlagGreen"
+                }
+            }
+        }
+    },
+    "1_sound": {
+        "type": "sound",
+        "file": "assets/sounds/1.ogg"
+    },
+    "2_sound": {
+        "type": "sound",
+        "file": "assets/sounds/2.ogg"
+    },
+    "3_sound": {
+        "type": "sound",
+        "file": "assets/sounds/3.ogg"
+    },
+    "congratulations_sound": {
+        "type": "sound",
+        "file": "assets/sounds/congratulations.ogg"
+    },
+    "drop_flag_sound": {
+        "type": "sound",
+        "file": "assets/sounds/drop_flag.mp3"
+    },
+    "final_round_sound": {
+        "type": "sound",
+        "file": "assets/sounds/final_round.ogg"
+    },
+    "game_over_sound": {
+        "type": "sound",
+        "file": "assets/sounds/game_over.ogg"
+    },
+    "out_of_ammo_sound": {
+        "type": "sound",
+        "file": "assets/sounds/out_of_ammo.wav"
+    },
+    "pick_up_flag_sound": {
+        "type": "sound",
+        "file": "assets/sounds/pick_up_flag.mp3"
+    },
+    "pistol1_sound": {
+        "type": "sound",
+        "file": "assets/sounds/pistol1.wav"
+    },
+    "pistol2_sound": {
+        "type": "sound",
+        "file": "assets/sounds/pistol2.wav"
+    },
+    "rifle_sound": {
+        "type": "sound",
+        "file": "assets/sounds/rifle.wav"
+    },
+    "shotgun_sound": {
+        "type": "sound",
+        "file": "assets/sounds/shotgun.wav"
+    },
+    "war_go_go_go_sound": {
+        "type": "sound",
+        "file": "assets/sounds/war_go_go_go.ogg"
+    },
+    "weapon_pick_up_sound": {
+        "type": "sound",
+        "file": "assets/sounds/weapon_pick_up.mp3"
+    },
+    "hurt_sound": {
+        "type": "sound",
+        "file": "assets/sounds/hurt.wav"
+    }
+}

@@ -35,7 +35,9 @@ export default class LoadingState extends Phaser.State {
 
     update () {
         if (this.areWebfontsLoaded()) {
-            Reveal.initialize();
+            Reveal.initialize({
+                history: true
+            });
 
             this.state.start('Play', true, false);
         }

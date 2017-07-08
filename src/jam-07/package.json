@@ -1,0 +1,34 @@
+{
+  "name": "rats",
+  "version": "1.0.0",
+  "description": "Rats",
+  "main": "main.js",
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gaudeon/rats.git"
+  },
+  "author": "Dash Bang Splat (Travis Chase aka gaudeon)",
+  "license": "MIT",
+  "dependencies": {},
+  "devDependencies": {
+    "body-parser": "^1.15.2",
+    "debug": "^2.2.0",
+    "electron": "^1.6.2",
+    "express": "^4.14.0",
+    "gulp": "^3.9.1",
+    "gulp-clean": "^0.3.2",
+    "gulp-concat": "^2.6.1",
+    "gulp-exec": "^2.1.3",
+    "gulp-nodemon": "^2.1.0",
+    "gulp-print": "^2.0.1",
+    "gulp-rename": "^1.2.2",
+    "gulp-run-command": "0.0.7",
+    "gulp-uglify": "^2.0.1",
+    "gulp-zip": "^4.0.0",
+    "path": "^0.12.7",
+    "phaser-ce": "^2.7.3",
+    "pump": "^1.0.2",
+    "uglify-js-harmony": "^2.7.5"
+  }
+}

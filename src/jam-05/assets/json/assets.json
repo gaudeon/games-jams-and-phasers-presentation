@@ -1,0 +1,7 @@
+{
+    "tilemap" : {
+        "maps": {
+            "json": "assets/json/Maps.json"
+        }
+    }
+}
