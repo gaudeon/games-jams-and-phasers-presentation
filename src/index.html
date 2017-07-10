@@ -5,6 +5,23 @@
         <title>Games, Jams and Phasers</title>
         <link rel="stylesheet" href="/assets/index.css">
 		<link rel="stylesheet" href="/assets/night.css">
+        <style>
+            section .spacing {
+                margin-top: 1em;
+            }
+            section .spacing-2x {
+                margin-top: 2em;
+            }
+            section .spacing-4x {
+                margin-top: 4em;
+            }
+            section .spacing-8x {
+                margin-top: 8em;
+            }
+            .reveal section > div > iframe {
+                border: groove 1px;
+            }
+        </style>
     </head>
     <body class="reveal">
             <div class="slides">
@@ -13,20 +30,20 @@
                     <p>by Travis Chase</p>
                     <a href="https://github.com/gaudeon/games-jams-and-phasers-presentation">https://github.com/gaudeon/games-jams-and-phasers-presentation</a>
                 </section>
-				<section>
+				<section data-slide-anim="Pacman">
                     <h2>I love games...</h2>
                 </section>
-				<section>
+				<section data-slide-anim="BHLogo">
                     <h2>...I love my job...</h2>
                 </section>
-				<section>
+				<section data-slide-anim="BHPacman">
                     <h2>...and I love that I can bring them together!</h2>
                 </section>
                 <section>
                     <h2>Last year we started an experiment.</h2>
                 </section>
                 <section>
-                    <h2>Game Jam in One Day</h2>
+                    <h2>Eight Hour Game Jam</h2>
                 </section>
                 <section>
                     <h2>Focus on One Project</h2>
@@ -39,10 +56,29 @@
                 </section>
                 <section>
                     <h2>Why a Game Jam?</h2>
+                    <p class="spacing-2x">
+                        <a href="https://en.wikipedia.org/wiki/Game_jam">Wikipedia</a> - A game jam is a gathering of people for the purpose of planning, designing, and creating one or more games within a short span of time, usually ranging between 24 and 72 hours. Participants are generally made up of programmers, game designers, artists, writers, and others in game development-related fields.
+                    </p>
                 </section>
                 <section>
                     <h2>Let's Get Meta</h2>
-                    <h3>(The Game of Game Jams)</h3>
+                    <h3>(Our Game of Game Jams)</h3>
+                </section>
+                <section>
+                    <h2>Why Phaser?</h2>
+                </section>
+                <section>
+                    <h2>Other Game Engines</h2>
+                </section>
+                <section>
+                    <h2>Game Engineering Toolbox</h2>
+                </section>
+                <section>
+                    <h2><a href="javascript: void(0)" onclick="toggleGame('demo', 800, 600, 'http://localhost:8081')">Let's make a game!</a></h2>
+                    <div id="demo-container" style="margin: auto; width: 800px; height:600px"></div>
+                </section>
+                <section>
+                    <h2>Our Game Jam Sessions</h2>
                 </section>
                 <section>
                     <h3>Jam 1 - <a href="javascript: void(0)" onclick="toggleGame('jam-01', 800, 600)">Elephant Pirates</a></h3>
@@ -130,13 +166,15 @@
                     </ul>
                 </section>
                 <section>
-                    <h2>Why Phaser?</h2>
+                    <h2>Some, hopefully, useful tidbits about Phaser</h2>
                 </section>
                 <section>
                     <h2>History</h2>
                 </section>
                 <section>
                     <h2>Docs</h2>
+                    <a href="https://photonstorm.github.io/phaser-ce/">https://photonstorm.github.io/phaser-ce/ - Phaser CE</a>
+                    <a href="https://phaser.io/docs/">https://phaser.io/docs/ - Phaser (up to 2.6.2)</a>
                 </section>
                 <section>
                     <h2>Examples</h2>
@@ -180,7 +218,7 @@
                 </section>
 			</div>
         <script>
-            function toggleGame (id, width, height) {
+            function toggleGame (id, width, height, host) {
                 var container = document.getElementById(id + '-container');
                 var iframe = document.getElementById(id + '-frame');
 
@@ -192,10 +230,12 @@
                     iframe.id = id + '-frame';
                     iframe.width = width;
                     iframe.height = height;
-                    iframe.src = id + '/index.html';
+                    iframe.src = host ? host : id + '/index.html';
                     container.insertBefore(iframe, null);
                 }
             }
+
+            var NUM_SLIDES = document.querySelector('div.slides').children.length;
         </script>
         <script src="/assets/vendor.bundle.js"></script>
         <script src="/assets/app.bundle.js"></script>

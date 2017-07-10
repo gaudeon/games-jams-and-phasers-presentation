@@ -29,7 +29,7 @@ export default class LoadingState extends Phaser.State {
 
         Reveal.addEventListener('slidechanged', (event) => {
             // event.previousSlide, event.currentSlide, event.indexh, event.indexv
-            this.state.start('Play', true, false, event.indexh, event.indexv);
+            this.state.start('Play', true, false, event.previousSlide, event.currentSlide, event.indexh, event.indexv);
         });
     }
 
