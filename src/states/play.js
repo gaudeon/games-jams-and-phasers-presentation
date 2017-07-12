@@ -1,6 +1,9 @@
 import Pacman from '../objects/slide-anims/pacman';
 import BHLogo from '../objects/slide-anims/bh-logo';
 import BHPacman from '../objects/slide-anims/bh-pacman';
+import Ships from '../objects/slide-anims/ships';
+import ItemDrop from '../objects/slide-anims/item-drop';
+import DropEverything from '../objects/slide-anims/drop-everything';
 
 export default class PlayState extends Phaser.State {
     init (previousSlide, currentSlide, slideIndexH = 0, slideIndexV = 0) {
@@ -172,7 +175,10 @@ export default class PlayState extends Phaser.State {
         return {
             Pacman: Pacman,
             BHLogo: BHLogo,
-            BHPacman: BHPacman
+            BHPacman: BHPacman,
+            Ships: Ships,
+            ItemDrop: ItemDrop,
+            DropEverything: DropEverything
         };
     }
 

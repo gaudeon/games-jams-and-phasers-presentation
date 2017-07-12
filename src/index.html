@@ -5,6 +5,7 @@
         <title>Games, Jams and Phasers</title>
         <link rel="stylesheet" href="/assets/index.css">
 		<link rel="stylesheet" href="/assets/night.css">
+		<link rel="stylesheet" href="/assets/zenburn.css">
         <style>
             section .spacing {
                 margin-top: 1em;
@@ -20,6 +21,9 @@
             }
             .reveal section > div > iframe {
                 border: groove 1px;
+            }
+            .reveal section code {
+                width: 900px;
             }
         </style>
     </head>
@@ -51,7 +55,7 @@
                 <section>
                     <h2>Agile Development Principles</h2>
                 </section>
-                <section>
+                <section data-slide-anim="Ships">
                     <h2>Have fun making games!</h2>
                 </section>
                 <section>
@@ -83,7 +87,7 @@
                         <li>Or make you own</li>
                     </ul>
                 </section>
-                <section>
+                <section data-slide-anim="ItemDrop">
                     <h2>Game Engineering Toolbox</h2>
                     <ul>
                         <li><a href="http://www.adobe.com/products/photoshop.html?sdid=KKQIL&ttsrccat=sem-ww-di-ps-brand&mv=search&s_kwcid=AL!3085!3!187985330335!e!!!!photosop&ef_id=WV0zVgAAAF-PQHtv:20170711043328:s" target="_blank">Photoshop</a>, <a href="https://www.gimp.org/" target="_blank">Gimp</a></li>
@@ -192,46 +196,75 @@
                     </ul>
                 </section>
                 <section>
-                    <h2>Some, hopefully, useful tidbits about Phaser</h2>
-                </section>
-                <section>
-                    <h2>History</h2>
+                    <h2>A few more things...</h2>
                 </section>
                 <section>
                     <h2>Docs</h2>
-                    <a href="https://photonstorm.github.io/phaser-ce/">https://photonstorm.github.io/phaser-ce/ - Phaser CE</a>
-                    <a href="https://phaser.io/docs/">https://phaser.io/docs/ - Phaser (up to 2.6.2)</a>
+                    <p><a href="https://photonstorm.github.io/phaser-ce/">https://photonstorm.github.io/phaser-ce/ - Phaser CE</a></p>
+                    <p><a href="https://phaser.io/docs/">https://phaser.io/docs/ - Phaser (up to 2.6.2)</a></p>
                 </section>
                 <section>
                     <h2>Examples</h2>
+                    <p><a href="http://phaser.io/examples" target="_blank">Phaser Examples</a></p>
                 </section>
                 <section>
-                    <h2>Features</h2>
-                    <p>
-                        <!-- redo this -->
-                        <span class="fragment">Game States<span>
-                        <span class="fragment">Asset Loading<span>
-                        <span class="fragment">Event Handling (Signals)<span>
-                        <span class="fragment">Display Objects (Sprites, Buttons, Primitives, Text)<span>
-                        <span class="fragment">Sprite Animation<span>
-                        <span class="fragment">Timers (tied to game loop)<span>
-                        <span class="fragment">Tilemap Support<span>
-                        <span class="fragment">Particle Systems<span>
-                        <span class="fragment">Physics<span>
-                        <span class="fragment">Input (keyboard, mouse, gamepad)<span>
-                        <span class="fragment">Tweening<span>
-                        <span class="fragment">Sounds<span>
-                        <span class="fragment">Various Utilities<span>
-                        <span class="fragment">Plugin Support<span>
-                    </p>
+                    <h2>Plugins</h2>
+                    <p><a href="http://phaser.io/shop/plugins" target="_blank">Not Free Plugins</a></p>
+                    <p><a href="https://github.com/photonstorm/phaser-plugins" target="_blank">Free Plugins</a></p>
                 </section>
-
-
                 <section>
                     <h2>Unit Testing</h2>
+                    <ul>
+                        <li class="fragment">Test only things not using Phaser classes...</li>
+                        <li class="fragment">...or try using <strong>JSDOM</strong> and <strong>Canvas</strong> with Phaser being in <strong>HEADLESS</strong> mode.</li>
+                    </ul>
                 </section>
                 <section>
+                    <pre><code class="javascript" data-trim>
+import {describe, it} from 'mocha';
+import chai from 'chai';
+import JSDOM from 'jsdom';
+import Canvas from 'canvas';
+
+const GAME_WIDTH = 800;
+const GAME_HEIGHT = 600;
+
+global.assert = chai.assert;
+
+global.Image = Canvas.Image; // phaser needs Image in global
+
+// virutal dom - with dom globals :(
+global.window = JSDOM.jsdom().defaultView;
+global.document = window.document;
+global.navigator = window.navigator;
+global.Element = window.Element; // phaser needs Element in global
+global.HTMLElement = window.HTMLElement; // phaser needs Element in global
+
+// Phaser needs a rendering context
+global.window.CanvasRenderingContext2D = new Canvas(GAME_WIDTH, GAME_HEIGHT).getContext('2d');
+
+// moar globals :( - so the code we are test can properly extend from these external libraries
+global.PIXI = require('../node_modules/phaser-ce/build/custom/pixi').PIXI;
+global.p2 = require('../node_modules/phaser-ce/build/custom/p2');
+global.Phaser = require('../node_modules/phaser-ce/build/phaser').Phaser;
+global._ = require('lodash');
+
+global.game = new Phaser.Game(GAME_WIDTH, GAME_HEIGHT, Phaser.HEADLESS);
+                    </code></pre>
+                </section>
+                <section data-slide-anim="DropEverything">
                     <h2>Attributions</h2>
+                    <p><a href="https://www.flickr.com/photos/gamerscore/531888775">"Pacman-like graphics"</a></p>
+
+                    <p><a href="https://opengameart.org/content/lpc-cats-and-dogs">"[LPC] Cats and Dogs" Artist: bluecarrot16 License: CC-BY 3.0 / GPL 3.0 / GPL 2.0 / OGA-BY 3.0</a></p>
+
+                    <p><a href="https://opengameart.org/content/cat-sfx">Cat SFX by Dan Knoflicek.</a></p>
+
+                    <p><a href="https://pixabay.com/p-310061/?no_redirect">Basket</a></p>
+
+                    <p><a href="https://opengameart.org/content/generic-items">Generic Items & Ship Sprites - Credit "Kenney.nl"</a></p>
+
+                    <p><a href="http://www.bluehost.com">BlueHost Logo</a></p>
                 </section>
                 <section>
                     <h2>Questions, Comments?</h2>
@@ -240,6 +273,9 @@
                     </p>
                     <p>
                         <a href="mailto:gaudeon@cpan.org">gaudeon@cpan.org</a>
+                    </p>
+                    <p>
+                        Special Thanks to <a href="http://endurance.com/">Endurance Internal Group</a>
                     </p>
                 </section>
 			</div>

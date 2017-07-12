@@ -4,6 +4,9 @@ import spritesJSON from '../../assets/json/sprites.json';
 // web fonts
 import WebFont from 'webfontloader';
 
+import hljs from '../../node_modules/highlight.js/lib/highlight';
+import hljsJS from '../../node_modules/highlight.js/lib/languages/javascript';
+
 // require in other assets to be included but not added to cache at this time
 require('../../assets/images/sprites.png');
 require('../../assets/css/fonts.css'); // arcade-classic
@@ -28,6 +31,9 @@ export default class LoadingState extends Phaser.State {
         this.game.physics.startSystem(Phaser.Physics.ARCADE);
 
         Reveal.addEventListener('slidechanged', (event) => {
+            hljs.registerLanguage('javascript', hljsJS);
+            hljs.initHighlighting();
+
             // event.previousSlide, event.currentSlide, event.indexh, event.indexv
             this.state.start('Play', true, false, event.previousSlide, event.currentSlide, event.indexh, event.indexv);
         });

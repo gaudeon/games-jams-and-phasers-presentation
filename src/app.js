@@ -5,6 +5,7 @@ import PlayState from './states/play';
 require('./index.html');
 require('../node_modules/reveal/index.css');
 require('../node_modules/reveal/theme/night.css');
+require('../node_modules/highlight.js/styles/zenburn.css');
 
 let game = new Phaser.Game('100', '100', Phaser.AUTO, '', null, true, true, null);
 
